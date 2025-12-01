@@ -1,0 +1,200 @@
+/*
+* Uncomment the following line to use the Inter font when not working on a Next.js project.
+* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* Then replace var(--font-inter) to Inter
+*/
+
+@import "tailwindcss";
+@import "./fonts.css";
+
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-react-aria-components";
+
+@variant dark (&:is(.dark *));
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentColor);
+  }
+
+  * {
+    text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variation-settings: normal;
+    scroll-behavior: smooth;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+  }
+}
+
+@theme {
+  /* Classical blue */
+  /* Brand */
+  --color-classical-blue: #0054ae;
+
+  /* Brand Blue Tints & Shades */
+  --color-classical-blue-tint-2: #6cc4f5;
+  --color-classical-blue-tint-1: #0099ec;
+  --color-classical-blue-tint-1-accessibility-adjusted: #009ceb;
+  --color-classical-blue-shade-1: #00377c;
+  --color-classical-blue-shade-2: #001e50;
+  --color-classical-blue-shade-3: #030f26;
+
+  /* Energy blue */
+  /* Brand */
+  --color-energy-blue: #00c7fd;
+
+  /* Brand Blue Tints & Shades */
+  --color-energy-blue-tint-2: #a0ebff;
+  --color-energy-blue-tint-1: #6ddcff;
+  --color-energy-blue-shade-1: #15bcef;
+  --color-energy-blue-shade-2: #0095ca;
+  --color-energy-blue-shade-3: #005b85;
+
+  /* Neutrals */
+  /* Carbon */
+  --color-carbon: #808080;
+
+  /* Brand Carbon Tints & Shades */
+  --color-carbon-tint-3: #f4f4f4;
+  --color-carbon-tint-2: #e9e9e9;
+  --color-carbon-tint-1: #aeaeae;
+  --color-carbon-shade-1: #525252;
+  --color-carbon-shade-2: #262626;
+
+  /* Energy Blue Steel */
+  /* Brand */
+  --color-blue-steel: #548fad;
+
+  /* Brand Blue Tints & Shades */
+  --color-blue-steel-tint-2: #b9d6e5;
+  --color-blue-steel-tint-1: #86b3ca;
+  --color-blue-steel-shade-1: #41728a;
+  --color-blue-steel-shade-2: #183544;
+
+  /* Moss */
+  --color-electric-moss: #9fd541;
+  --color-moss: #8bae46;
+  --color-moss-tint-2: #d7f3a2;
+  --color-moss-tint-1: #b1d272;
+  --color-moss-shade-1: #708541;
+  --color-moss-shade-2: #515a3d;
+
+  --font-intel-one-text: "IntelOne Text", sans-serif;
+  --font-intel-one-display: "IntelOne Texsplayt", serif;
+  --font-intel-one-mono: "IntelOne Mono", monospace;
+
+  --font-sans:
+    "IntelOne Text", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-serif: "IntelOne Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    "IntelOne Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono-size: 16px;
+}
+
+/* Custom theming */
+:root {
+  /* TODO use this in grid-cols and grid-rows */
+  --footer-height: 5rem;
+  --pacman-bg: var(--color-yellow-200, yellow);
+  --pacman-eye-color: var(--color-yellow-950, black);
+
+  --pacman-bg: var(--color-amber-200, yellow);
+  --pacman-eye-color: var(--color-amber-950, #00377c);
+
+  --pacman-eye-color: #030f26;
+  --pacman-bg: var(--text-classical-blue-shade-1, #00377c);
+
+  --color-digital-classical-blue: #0046c8;
+
+  --energy-blue-light: #7bdeff;
+  --daisy-shade: rgb(237, 178, 0); /* #edb200 */
+  --brand-daisy: #fec91b;
+  --brand-daisy-tint: #ffe17a;
+  --brand-rust: #e96115;
+
+  --annotation-fill: var(--daisy-shade);
+  --annotation-stroke: var(--energy-blue-light, #7bdeff);
+
+  --annotation-fill: var(--color-pink-300);
+  --annotation-stroke: var(--color-rose-500);
+}
+
+/* Overwrite Spectacle.js' styling so that we can have a customized footer */
+#deck {
+  height: 100%;
+}
+
+#deck > div {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: unset;
+  transform-origin: unset;
+}
+
+/* Remove absolute positioning so that we can have a sidebar */
+#deck > div > div {
+  position: unset;
+  inset: unset;
+  pointer-events: inherit;
+}
+
+@media all and (display-mode: fullscreen) {
+  .fullscreen\:hidden {
+    display: none !important;
+  }
+}
+
+/* Overwrite spectacle */
+code {
+  font-family: var(--font-mono) !important;
+  font-size: var(--font-mono-size) !important;
+}
+
+.code-block pre {
+  padding-inline: 1em !important;
+  padding-block: 0.5em !important;
+}
+
+.shimmer {
+  mask: linear-gradient(60deg, #000 30%, #0005, #000 70%) right/380% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    mask-position: left;
+  }
+}

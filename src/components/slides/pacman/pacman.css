@@ -1,0 +1,118 @@
+@property --clip-top {
+  syntax: "<percentage>"; /* <- defined as type number for the transition to work */
+  initial-value: 10%;
+  inherits: false;
+}
+
+@property --clip-bottom {
+  syntax: "<percentage>"; /* <- defined as type number for the transition to work */
+  initial-value: 90%;
+  inherits: false;
+}
+
+@property --direction {
+  syntax: "<number>"; /* <- defined as type number for the transition to work */
+  initial-value: 1;
+  inherits: false;
+}
+
+@property --eye-radius {
+  syntax: "<number>"; /* <- defined as type number for the transition to work */
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --direction-angle {
+  syntax: "<angle>"; /* <- defined as type number for the transition to work */
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes move {
+  0%,
+  100% {
+    /* left: 0; */
+  }
+  50% {
+    /* left: 80%; */
+  }
+}
+
+@keyframes mouth {
+  0%,
+  100% {
+    --clip-top: 10%;
+    --clip-bottom: 90%;
+  }
+  50% {
+    --clip-top: 50%;
+    --clip-bottom: 50%;
+  }
+}
+
+@keyframes flip {
+  0%,
+  49.99% {
+    --direction: 1;
+  }
+  50%,
+  100% {
+    --direction: -1;
+  }
+}
+.pacman::before {
+  content: "";
+  width: calc(var(--eye-radius) * 1px);
+  height: calc(var(--eye-radius) * 1px);
+  background-color: var(--pacman-eye-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 22%;
+  left: 65%;
+  transform: translate(-50%, -50%); /* Centering */
+
+  transition:
+    height ease-in-out 0.3s,
+    width ease-in-out 0.3s;
+}
+
+.pacman {
+  position: relative;
+  background-color: var(--pacman-bg);
+  border-radius: 50%;
+
+  --clip-top: 50%;
+  --clip-mid: 55%;
+  --clip-bottom: 50%;
+
+  --direction: 1;
+  --pacman-mouth-duration: 0.2s;
+  --pacman-move-duration: 500s;
+
+  clip-path: polygon(
+    100% 0,
+    100% var(--clip-top),
+    var(--clip-mid) 50%,
+    100% var(--clip-bottom),
+    100% 100%,
+    0 100%,
+    0 0
+  );
+
+  transform: scaleX(var(--direction)) rotate(var(--direction-angle));
+  transition: transform ease-in-out 2s;
+
+  /* view-transition-name: pacman; */
+  /* transition: clip-path 0.3s ease-in-out, transform 0.3s ease-in-out; */
+}
+
+.pacman-moving-mouth {
+  animation:
+    mouth var(--pacman-mouth-duration) ease-in-out infinite alternate,
+    flip var(--pacman-move-duration) ease-in-out infinite,
+    move var(--pacman-move-duration) linear infinite;
+}
+
+.pacman-moving-mouth::before {
+  --eye-radius: 6;
+}

@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "target": "ES2022",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@open-cv": ["./packages/smart-tools/src/opencv/4.9.0/opencv.js"]
+    },
+
+    /* Bundler mode */
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "include": ["src"]
+}
