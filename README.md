@@ -1,7 +1,7 @@
 <div align="center">
   <p>
-    <a align="center" href="https://docs.geti.intel.com/">
-      <img width="100%" src="/src/assets/aigrunn/readme-header.png" />
+    <a align="center" href="http://ai-grunn-2025.markredeman.nl/">
+      <img width="100%" src="/screenshots/readme-header.png" />
     </a>
   </p>
 </div>
@@ -11,13 +11,18 @@
 In this talk we show how we developed AI vision tools that can be used to draw bounding boxes or segmentation masks on users' vision datasets.
 These annotation tools run locally in the browser without any server communication.
 
-We first review some classical annotation tools that we implemented for Intel Geti based on classical computer vision using OpenCV.
+We first review some classical annotation tools that we implemented for [Intel Geti](https://docs.geti.intel.com/) based on classical computer vision using [OpenCV](https://opencv.org/).
 
-Then we dive into integrating ONNXRuntime which we used to implement interactive auto segmentation tools such as Meta's Segment Anything Model (SAM).
+Then we dive into integrating [ONNXRuntime](https://github.com/microsoft/onnxruntime) which we used to implement interactive auto segmentation tools such as Meta's [Segment Anything Model (SAM)](https://aidemos.meta.com/segment-anything/).
 We will cover some implementation details such as the encoder/decoder strategies, pre processing (image resizing, color normalization) and post processing steps.
 
-Some practical optimization tips will be shared such as using WebWorkers, choosing the right encoder model and efficiently computing the post processing steps for high resolution images.
-Looking ahead we discuss emerging technologies like WebGPU and WebNN that allows us to perform inference outside of the CPU.
+Some practical optimization tips will be shared such as using [WebWorkers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers), choosing the right encoder model and efficiently computing the post processing steps for high resolution images.
+Looking ahead we discuss emerging technologies like [WebGPU](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API) and [WebNN](https://webnn.io/) that allows us to perform inference outside of the CPU.
+
+| <a align="center" href="https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser?slideIndex=0&stepIndex=0"><img width="100%" src="/screenshots/title.png" /></a>            | <a align="center" href="https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser?slideIndex=1&stepIndex=0"><img width="100%" src="/screenshots/build-ai.png" /></a>            | <a align="center" href="https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser?slideIndex=11&stepIndex=6"><img width="100%" src="/screenshots/grabcut-demo.png" /></a> |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <a align="center" href="https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser?slideIndex=13&stepIndex=4"><img width="100%" src="/screenshots/opencv-smart-tools-overview.png" /></a> | <a align="center" href="https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser?slideIndex=21&stepIndex=6"><img width="100%" src="/screenshots/sam-pre-processing.png" /></a> | <a align="center" href="https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser?slideIndex=26&stepIndex=0"><img width="100%" src="/screenshots/sam-demo.png" /></a>     |
+
 
 
 ## About the slides
@@ -32,7 +37,7 @@ These slides were made in React, using [Spectacle](https://nearform.com/open-sou
 
 The code for these slides borrow concepts from [Geti's Web UI code](https://github.com/open-edge-platform/geti/tree/main/web_ui).
 
-The [Using OpenCV to implement Grabcut](/building-interactive-ai-vision-tools-for-the-browser/interactive-grabcut-demo) and [SAM demo](/building-interactive-ai-vision-tools-for-the-browser/interactive-sam-demo) slides use our custom compiled OpenCV js code as well as ONNXRuntime to run AI models in the browser.
+The [Using OpenCV to implement Grabcut](https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser/interactive-grabcut-demo) and [SAM demo](https://ai-grunn-2025.markredeman.nl/building-interactive-ai-vision-tools-for-the-browser/interactive-sam-demo) slides use our custom compiled OpenCV js code as well as ONNXRuntime to run AI models in the browser.
 
 
 ## Train your own AI vision models with Geti
